@@ -82,3 +82,24 @@ scp -i ~/.ssh/<keyname> -r <route>/<to>/<file> ubuntu@<public IP>:/<location>/<i
 ```
 rsync -r <directory>/ <directory>/<in EC2>
 ```
+
+## CD Pipeline in Jenkins
+
+### Source Code Management
+
+Use Git: Add credentials from CI pipeline
+
+### Build Triggers
+
+Build after other projects have build: specify the CI pipeline must be built first
+
+### Build Environments
+
+SSH Agent: Select the private SSH key within the EC2
+
+### Build
+
+Execute Shell
+```
+scp -o StrictHostKeyChecking='no' -r app ubuntu@63.33.197.235:/home/ubuntu/
+```
